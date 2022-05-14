@@ -2,10 +2,13 @@ import { connection } from ".";
 
 const getAllEmails = async () => {
   const query = "SELECT * FROM emails";
-  const [rows, fields] = await connection.execute(query);
 
-  return rows;
+  try {
+    const [rows, fields] = await connection.execute(query);
+    return rows;
+  } catch (error) {
+    console.error(error);
+  }
 };
 
-const emailsController = { getAllEmails };
-export default emailsController;
+export const emailsController = { getAllEmails };
