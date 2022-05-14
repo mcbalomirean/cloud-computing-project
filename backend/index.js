@@ -1,15 +1,22 @@
 import express from "express";
 import cors from "cors";
-import dotenv from "dotenv";
 
-dotenv.config();
+import { applicationPort } from "./config.js";
+import { connection } from "./database";
+
 const app = express();
-app.use(cors);
+app.use(cors());
 
-const port = process.env.PORT || 3000;
+const port = applicationPort ?? 3001;
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
+app.get("/", async (req, res) => {
+  try {
+    const [rows, fields] = await connection.execute("SELECT * FROM emails");
+    res.status(200).json(rows);
+  } catch (error) {
+    console.error(error);
+    res.status(500);
+  }
 });
 
 app.listen(port, () => {
