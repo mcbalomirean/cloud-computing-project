@@ -1,14 +1,28 @@
-import { connection } from ".";
+import { executeQuery } from ".";
 
 const getAllEmails = async () => {
   const query = "SELECT * FROM emails";
 
-  try {
-    const [rows, fields] = await connection.execute(query);
-    return rows;
-  } catch (error) {
-    console.error(error);
-  }
+  const rows = executeQuery(query);
+  return rows;
 };
 
-export const emailsController = { getAllEmails };
+const getEmailById = async (id) => {
+  const query = "SELECT * FROM emails WHERE id = ?";
+
+  const rows = executeQuery(query, [id]);
+  return rows;
+};
+
+const insertEmail = async (receiver, subject, content) => {
+  if (!receiver || !subject || !content) {
+    throw new Error("Missing parameters for e-mail insertion.");
+  }
+
+  const query = `INSERT INTO emails (receiver, subject, content) VALUES (?, ?, ?)`;
+
+  const rows = executeQuery(query, [receiver, subject, content]);
+  return rows;
+};
+
+export const emailsController = { getAllEmails, getEmailById, insertEmail };
