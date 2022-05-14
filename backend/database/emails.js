@@ -25,4 +25,29 @@ const insertEmail = async (receiver, subject, content) => {
   return rows;
 };
 
-export const emailsController = { getAllEmails, getEmailById, insertEmail };
+const updateEmailById = async (receiver, subject, content, id) => {
+  if (!receiver || !subject || !content) {
+    throw new Error("Missing parameters for e-mail insertion.");
+  }
+
+  const query =
+    "UPDATE emails SET receiver = ?, subject = ?, content = ? WHERE id = ?";
+
+  const rows = executeQuery(query, [receiver, subject, content, id]);
+  return rows;
+};
+
+const deleteEmailById = async (id) => {
+  const query = "DELETE FROM emails WHERE id = ?";
+
+  const rows = executeQuery(query, [id]);
+  return rows;
+};
+
+export const emailsController = {
+  getAllEmails,
+  getEmailById,
+  insertEmail,
+  updateEmailById,
+  deleteEmailById,
+};

@@ -40,3 +40,33 @@ emailsRouter.post("/", async (req, res) => {
     res.status(500);
   }
 });
+
+emailsRouter.put("/:id", async (req, res) => {
+  const { id } = req.params;
+  const { receiver, subject, content } = req.body;
+
+  try {
+    const results = await emailsController.updateEmailById(
+      receiver,
+      subject,
+      content,
+      id
+    );
+    res.status(200).json(results);
+  } catch (error) {
+    console.error(error);
+    res.status(500);
+  }
+});
+
+emailsRouter.delete("/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const results = await emailsController.deleteEmailById(id);
+    res.status(200).json(results);
+  } catch (error) {
+    console.error(error);
+    res.status(500);
+  }
+});
