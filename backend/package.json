@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --experimental-specifier-resolution=node index.js",
+    "start": "nodemon --experimental-specifier-resolution=node index.js --ignore ./config/credentials.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -17,5 +17,8 @@
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "mysql2": "^2.3.3"
+  },
+  "engines": {
+    "node": "16.x"
   }
 }
