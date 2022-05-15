@@ -1,14 +1,16 @@
 import { executeQuery } from ".";
 
 const getAllNotes = async () => {
-  const query = "SELECT * FROM notes";
+  const query =
+    "SELECT n.*, i.url, i.labels FROM notes n LEFT JOIN images i ON n.image_id = i.id";
 
   const rows = executeQuery(query);
   return rows;
 };
 
 const getNoteById = async (id) => {
-  const query = "SELECT * FROM notes WHERE id = ?";
+  const query =
+    "SELECT n.*, i.url, i.labels FROM notes n LEFT JOIN images i ON n.image_id = i.id WHERE n.id = ?";
 
   const rows = executeQuery(query, [id]);
   return rows;

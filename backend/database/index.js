@@ -1,5 +1,5 @@
 import mysql from "mysql2/promise";
-import { databaseConfig } from "../config.js";
+import { databaseConfig } from "../config/config.js";
 
 export const connection = await mysql.createConnection(databaseConfig);
 
@@ -14,3 +14,4 @@ export const executeQuery = async (query, args) => {
 };
 
 export { notesController } from "./notes.js";
+export { imagesController } from "./images.js";
