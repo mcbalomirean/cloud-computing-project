@@ -1,8 +1,10 @@
+import AppHeader from "../components/AppHeader";
 import MainPage from "../components/MainPage";
 
 function App() {
   return (
-    <div className="App">
+    <div id="App">
+      <AppHeader />
       <MainPage />
     </div>
   );

@@ -1,13 +1,12 @@
 import React from "react";
+import NoteForm from "../containers/NoteForm";
+import NoteList from "../containers/NoteList";
 
 export default function MainPage() {
   return (
-    <div id="MainPage">
-      <header className="h-14 bg-lime-700 flex justify-center">
-        <span className="self-center text-white text-bold text-xl">
-          Mail Translator
-        </span>
-      </header>
+    <div id="MainPage" className="container grid grid-cols-2 mx-auto p-4">
+      <NoteList />
+      <NoteForm />
     </div>
   );
 }
