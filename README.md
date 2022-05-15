@@ -1,6 +1,9 @@
 # Cloud Computing Project
 
+**Mircea-Cristian Balomirean, Grupa 1117**
+
 Aplicația pe Heroku: https://stormy-savannah-55557.herokuapp.com/
+<br />
 Demonstrație video: https://youtu.be/YfImab5VOsA
 
 ## Introducere
@@ -40,21 +43,27 @@ Response body: just the status, 200
 ### Metode HTTP
 
 `GET /notes`
+<br />
 Pentru cererea tuturor notițelor.
 
 `GET /notes/:id`
+<br />
 Pentru cererea unei singure notițe.
 
 `POST /notes`
+<br />
 Pentru inserarea unei notițe.
 
 `PUT /notes/:id`
+<br />
 Pentru actualizarea unei notițe.
 
 `DELETE /notes/:id`
+<br />
 Pentru ștergerea unei notițe.
 
 `POST /images`
+<br />
 Pentru analizarea unei imagini și, ulterior, inserarea unei notițe folosind-o.
 
 ### Autentificare și autorizare servicii utilizate
