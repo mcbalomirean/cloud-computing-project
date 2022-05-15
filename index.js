@@ -6,8 +6,8 @@ import cors from "cors";
 import { notesRouter, imagesRouter } from "./routes";
 
 const app = express();
-app.use(bodyParser.json());
 app.use(cors());
+app.use(bodyParser.json());
 
 app.use("/notes", notesRouter);
 app.use("/images", imagesRouter);
