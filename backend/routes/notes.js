@@ -1,11 +1,11 @@
 import { Router } from "express";
-import { emailsController } from "../database";
+import { notesController } from "../database";
 
-export const emailsRouter = Router();
+export const notesRouter = Router();
 
-emailsRouter.get("/", async (req, res) => {
+notesRouter.get("/", async (req, res) => {
   try {
-    const results = await emailsController.getAllEmails();
+    const results = await notesController.getAllNotes();
     res.status(200).json(results);
   } catch (error) {
     console.error(error);
@@ -13,11 +13,11 @@ emailsRouter.get("/", async (req, res) => {
   }
 });
 
-emailsRouter.get("/:id", async (req, res) => {
+notesRouter.get("/:id", async (req, res) => {
   try {
     const { id } = req.params;
 
-    const results = await emailsController.getEmailById(id);
+    const results = await notesController.getNoteById(id);
     res.status(200).json(results);
   } catch (error) {
     console.error(error);
@@ -25,11 +25,11 @@ emailsRouter.get("/:id", async (req, res) => {
   }
 });
 
-emailsRouter.post("/", async (req, res) => {
+notesRouter.post("/", async (req, res) => {
   const { receiver, subject, content } = req.body;
 
   try {
-    const results = await emailsController.insertEmail(
+    const results = await notesController.insertNote(
       receiver,
       subject,
       content
@@ -41,12 +41,12 @@ emailsRouter.post("/", async (req, res) => {
   }
 });
 
-emailsRouter.put("/:id", async (req, res) => {
+notesRouter.put("/:id", async (req, res) => {
   const { id } = req.params;
   const { receiver, subject, content } = req.body;
 
   try {
-    const results = await emailsController.updateEmailById(
+    const results = await notesController.updateNoteById(
       receiver,
       subject,
       content,
@@ -59,11 +59,11 @@ emailsRouter.put("/:id", async (req, res) => {
   }
 });
 
-emailsRouter.delete("/:id", async (req, res) => {
+notesRouter.delete("/:id", async (req, res) => {
   try {
     const { id } = req.params;
 
-    const results = await emailsController.deleteEmailById(id);
+    const results = await notesController.deleteNoteById(id);
     res.status(200).json(results);
   } catch (error) {
     console.error(error);

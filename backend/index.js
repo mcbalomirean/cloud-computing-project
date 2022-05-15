@@ -3,13 +3,13 @@ import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
 
-import { emailsRouter } from "./routes";
+import { notesRouter } from "./routes";
 
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
-app.use("/emails", emailsRouter);
+app.use("/notes", notesRouter);
 
 const port = applicationPort ?? 3001;
 app.listen(port, () => {

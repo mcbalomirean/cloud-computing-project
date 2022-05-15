@@ -1,1 +1,1 @@
-export { emailsRouter } from "./emails";
+export { notesRouter } from "./notes";
