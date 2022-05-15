@@ -56,8 +56,8 @@ export default function NoteForm() {
           type="button"
           className={
             form.title === "" || form.content === ""
-              ? "bg-blue-500 text-white font-bold py-2 px-4 rounded opacity-50 cursor-not-allowed"
-              : "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+              ? "w-full bg-blue-500 text-white font-bold py-2 px-4 rounded opacity-50 cursor-not-allowed"
+              : "w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
           }
           onClick={handleInputSubmit}
           disabled={form.title === "" || form.content === ""}
