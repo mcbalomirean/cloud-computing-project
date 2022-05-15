@@ -26,14 +26,10 @@ notesRouter.get("/:id", async (req, res) => {
 });
 
 notesRouter.post("/", async (req, res) => {
-  const { receiver, subject, content } = req.body;
+  const { title, content } = req.body;
 
   try {
-    const results = await notesController.insertNote(
-      receiver,
-      subject,
-      content
-    );
+    const results = await notesController.insertNote(title, content);
     res.status(200).json(results);
   } catch (error) {
     console.error(error);
@@ -43,15 +39,10 @@ notesRouter.post("/", async (req, res) => {
 
 notesRouter.put("/:id", async (req, res) => {
   const { id } = req.params;
-  const { receiver, subject, content } = req.body;
+  const { title, content } = req.body;
 
   try {
-    const results = await notesController.updateNoteById(
-      receiver,
-      subject,
-      content,
-      id
-    );
+    const results = await notesController.updateNoteById(title, content, id);
     res.status(200).json(results);
   } catch (error) {
     console.error(error);

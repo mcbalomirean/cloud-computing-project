@@ -16,7 +16,7 @@ const getNoteById = async (id) => {
 
 const insertNote = async (title, content) => {
   if (!title || !content) {
-    throw new Error("Missing parameters for e-mail insertion.");
+    throw new Error("Missing parameters for note insertion.");
   }
 
   const query = `INSERT INTO notes (title, content) VALUES (?, ?)`;
@@ -27,7 +27,7 @@ const insertNote = async (title, content) => {
 
 const updateNoteById = async (title, content, id) => {
   if (!title || !content) {
-    throw new Error("Missing parameters for e-mail update.");
+    throw new Error("Missing parameters for note update.");
   }
 
   const query = "UPDATE notes SET title = ?, content = ? WHERE id = ?";
