@@ -1,4 +1,4 @@
-import { applicationPort } from "./config.js";
+import { applicationPort } from "./config/";
 import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
