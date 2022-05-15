@@ -8,8 +8,9 @@ export default function NoteList() {
 
   const loadNotes = async () => {
     const { data } = await axios.get(notesUrl);
-    console.log(data);
-    setNotes(data);
+    const reversedData = data.reverse();
+
+    setNotes(reversedData);
   };
 
   useEffect(() => {
@@ -19,9 +20,17 @@ export default function NoteList() {
   return (
     <div className="container mx-auto px-4">
       {notes.map((note, idx) => {
-        const { title, content } = note;
+        const { id, title, content, url } = note;
 
-        return <Note key={idx} title={title} content={content} />;
+        return (
+          <Note
+            key={idx}
+            id={id}
+            imageUrl={url}
+            title={title}
+            content={content}
+          />
+        );
       })}
     </div>
   );
