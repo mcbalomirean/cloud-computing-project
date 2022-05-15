@@ -72,3 +72,5 @@ Pentru versiunea curentă a aplicației, nu există autentificarea unui utilizat
 Pentru Heroku, deoarece nu este sigură încărcarea fișierelor de credențiale în git, acestea sunt generate automat când rulează aplicația din variabilele de configurație.
 
 ## Capturi ecran
+
+![image](https://user-images.githubusercontent.com/69850409/168487198-9a6c98a3-bf14-4585-a981-37fe7f959803.png)
