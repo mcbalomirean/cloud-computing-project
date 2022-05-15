@@ -12,6 +12,9 @@
 .env
 .env.test
 
+# credentials files
+credentials.json
+
 # production
 /build
 
