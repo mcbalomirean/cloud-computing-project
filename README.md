@@ -1,11 +1,5 @@
 # Cloud Computing Project
 
-**Mircea-Cristian Balomirean, Grupa 1117**
-
-Aplicația pe Heroku: https://stormy-savannah-55557.herokuapp.com/
-<br />
-Demonstrație video: https://youtu.be/YfImab5VOsA
-
 ## Introducere
 
 În acest proiect s-a realizat o aplicație de tip Cloud Computing, folosind Google Cloud Platform pentru API-urile necesare și Heroku pentru lansarea fie a backend-ului cât și a frontend-ului. Aplicația se numește **Cloud Notes**.
